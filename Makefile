@@ -5,6 +5,11 @@ help:
 	@echo "watch 	generate project using defaults and watch for changes"
 	@echo "replay 	replay last cookiecutter run and watch for changes"
 
+
+pre-dev: ## install libs for development requirements
+	@pip install -q -r requirements_dev.txt
+	@pre-commit install
+
 bake:
 	cookiecutter $(BAKE_OPTIONS) . --overwrite-if-exists
 
